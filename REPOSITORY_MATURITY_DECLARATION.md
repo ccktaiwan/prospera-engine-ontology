@@ -1,14 +1,13 @@
 # REPOSITORY_MATURITY_DECLARATION | prospera-engine-ontology
-Ring: R4 Engines
-Declared Level: 5
-Declaration Date: 2026-06-01
+
+Declared Type: SPEC
+
+Spec Health Indicators:
+  Reference Integrity: see spec_health.json
+  Version Consistency: CONTRACT.md + AGENTS.md present
+  Activity: git log --since=30 days
+
 Governing Authority: prospera-constitution-governance
-Human-Reviewed: Kevin 2026-06-01 (J1-B signed)
+ADR: ADR-015 (Dynamic Workflow by Ontology Role)
 
-## Level 5 Evidence (ADR-013 Pattern)
-- monitoring_hook.py: trigger_monitoring() + execution_log.jsonl
-- auto_remediate(): remediation_log.jsonl
-- Tests: pytest PASS
-
-## Next Level Gate (Level 6)
-- remediation_log accumulates real failures from Production traffic
+Note: SPEC repos do not use L0-L7 Level system (ADR-015)

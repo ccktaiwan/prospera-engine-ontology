@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-06-01T19:51:12.264200",
+  "repo": "prospera-engine-ontology",
+  "type": "SPEC",
+  "reference": {
+    "repo": "prospera-engine-ontology",
+    "referenced": false,
+    "status": "ORPHANED"
+  },
+  "version": {
+    "contract": true,
+    "agents": true,
+    "status": "CONSISTENT"
+  },
+  "activity": {
+    "active": true,
+    "status": "ACTIVE"
+  }
+}
