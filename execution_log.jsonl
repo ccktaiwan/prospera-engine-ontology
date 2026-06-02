@@ -114,3 +114,31 @@
 {"timestamp": "2026-06-02T02:53:02.108103", "repo": "prospera-engine-ontology", "context": {"entity": "content", "role": "USER_INTENT"}}
 {"timestamp": "2026-06-02T02:53:02.116220", "entity": "subsidy", "role": "WORLD_INTENT", "context": {}}
 {"timestamp": "2026-06-02T02:53:02.116831", "repo": "prospera-engine-ontology", "context": {"entity": "subsidy", "role": "WORLD_INTENT"}}
+{"timestamp": "2026-06-02T08:07:35.521938", "entity": "content", "role": "USER_INTENT", "context": {}}
+{"timestamp": "2026-06-02T08:07:35.521938", "repo": "prospera-engine-ontology", "context": {"entity": "content", "role": "USER_INTENT"}}
+{"timestamp": "2026-06-02T08:07:35.530307", "entity": "strategy", "role": "USER_INTENT", "context": {}}
+{"timestamp": "2026-06-02T08:07:35.530307", "repo": "prospera-engine-ontology", "context": {"entity": "strategy", "role": "USER_INTENT"}}
+{"timestamp": "2026-06-02T08:07:35.536817", "entity": "gengrant", "role": "USER_INTENT", "context": {}}
+{"timestamp": "2026-06-02T08:07:35.537682", "repo": "prospera-engine-ontology", "context": {"entity": "gengrant", "role": "USER_INTENT"}}
+{"timestamp": "2026-06-02T08:07:35.542863", "entity": "exam", "role": "USER_INTENT", "context": {}}
+{"timestamp": "2026-06-02T08:07:35.543862", "repo": "prospera-engine-ontology", "context": {"entity": "exam", "role": "USER_INTENT"}}
+{"timestamp": "2026-06-02T08:07:58.146861", "entity": "prospera-os", "role": "EXECUTION", "context": {}}
+{"timestamp": "2026-06-02T08:07:58.146861", "repo": "prospera-engine-ontology", "context": {"entity": "prospera-os", "role": "EXECUTION"}}
+{"timestamp": "2026-06-02T08:07:58.146861", "entity": "prospera-blueprint-esg", "role": "SPEC", "context": {}}
+{"timestamp": "2026-06-02T08:07:58.146861", "repo": "prospera-engine-ontology", "context": {"entity": "prospera-blueprint-esg", "role": "SPEC"}}
+{"timestamp": "2026-06-02T08:07:58.162567", "entity": "prospera-engine-external-intelligence", "role": "EXTERNAL_SIGNAL", "context": {}}
+{"timestamp": "2026-06-02T08:07:58.162567", "repo": "prospera-engine-ontology", "context": {"entity": "prospera-engine-external-intelligence", "role": "EXTERNAL_SIGNAL"}}
+{"timestamp": "2026-06-02T08:07:58.171006", "entity": "content", "role": "USER_INTENT", "context": {}}
+{"timestamp": "2026-06-02T08:07:58.173012", "repo": "prospera-engine-ontology", "context": {"entity": "content", "role": "USER_INTENT"}}
+{"timestamp": "2026-06-02T08:07:58.178554", "entity": "subsidy", "role": "WORLD_INTENT", "context": {}}
+{"timestamp": "2026-06-02T08:07:58.178554", "repo": "prospera-engine-ontology", "context": {"entity": "subsidy", "role": "WORLD_INTENT"}}
+{"timestamp": "2026-06-02T08:07:58.190835", "entity": "prospera-gateway", "role": "EXECUTION", "context": {}}
+{"timestamp": "2026-06-02T08:07:58.190835", "repo": "prospera-engine-ontology", "context": {"entity": "prospera-gateway", "role": "EXECUTION"}}
+{"timestamp": "2026-06-02T08:07:58.198603", "entity": "gengrant", "role": "USER_INTENT", "context": {}}
+{"timestamp": "2026-06-02T08:07:58.198603", "repo": "prospera-engine-ontology", "context": {"entity": "gengrant", "role": "USER_INTENT"}}
+{"timestamp": "2026-06-02T08:07:58.224699", "repo": "prospera-engine-ontology", "context": {"test": true}}
+{"timestamp": "2026-06-02T08:07:58.254281", "repo": "prospera-engine-ontology", "context": {"test": true}}
+{"timestamp": "2026-06-02T08:07:58.261409", "entity": "prospera-os", "role": "EXECUTION", "context": {}}
+{"timestamp": "2026-06-02T08:07:58.263414", "repo": "prospera-engine-ontology", "context": {"entity": "prospera-os", "role": "EXECUTION"}}
+{"timestamp": "2026-06-02T08:07:58.267438", "entity": "prospera-gateway", "role": "EXECUTION", "context": {}}
+{"timestamp": "2026-06-02T08:07:58.267438", "repo": "prospera-engine-ontology", "context": {"entity": "prospera-gateway", "role": "EXECUTION"}}
