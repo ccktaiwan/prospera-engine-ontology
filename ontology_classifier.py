@@ -90,8 +90,16 @@ def classify(entity: str, entity_type: str = "auto") -> dict:
     Returns: role (EXECUTION|SPEC|EXTERNAL_SIGNAL|USER_INTENT|WORLD_INTENT)
     """
     if entity_type == "repo" or (entity_type == "auto" and "prospera-" in entity):
-        return classify_repo(entity)
-    return classify_request(entity)
+        result = classify_repo(entity)
+    else:
+        result = classify_request(entity)
+    # L5: log every classification call (ADR-016)
+    try:
+        from monitoring_hook import log_classification
+        log_classification(entity, result.get("role", "?"))
+    except Exception:
+        pass
+    return result
 
 
 def get_workflow_for_role(role: str) -> str:

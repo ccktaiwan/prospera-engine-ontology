@@ -2,23 +2,20 @@
 
 Ring: R4a Internal Intelligence
 Declared Type: EXECUTION
-Declared Level: 3
+Declared Level: 5
 Declaration Date: 2026-06-01
 ADR: ADR-016
 
-## Level 3 Evidence
+## Level 5 Evidence
 
-- ontology_classifier.py: classify() API live (ADR-016)
-- Tests: pytest 7/7 (test_classifier.py)
-- CONTRACT.md + AGENTS.md present
+- Level 3: ontology_classifier.py classify() API (ADR-016), pytest 7/7
+- Level 4: Used by Decision Engine v2.1 in real workflow routing
+- Level 5: monitoring_hook.py - every classify() call logged via log_classification()
+  execution_log.jsonl feeds Internal Intelligence pipeline
+- Tests: pytest 16/16 (classifier + monitoring + contract)
 
-## Role in Ecosystem
+## Ecosystem Role
 
 Semantic foundation for Decision Layer.
-Every entity (repo/request/signal) gets classified by Ontology Role.
-Decision Engine calls classify() before routing to workflow.
-
-## Next Level Gate (Level 5)
-
-- monitoring_hook.py integration
-- CI/CD active and passing
+Enables Dynamic Workflow by Ontology Role (ADR-015).
+Every entity classification generates an execution_log entry.

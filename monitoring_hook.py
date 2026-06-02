@@ -27,3 +27,16 @@ def auto_remediate(error_context=None):
     with open(log, "a", encoding="utf-8") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
     return entry
+
+
+def log_classification(entity: str, role: str, context: dict = None):
+    """Log every classify() call for Internal Intelligence. (L5 ADR-016)"""
+    entry = {
+        "timestamp": datetime.datetime.utcnow().isoformat(),
+        "entity": entity,
+        "role": role,
+        "context": context or {},
+    }
+    with open(LOG_PATH, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    trigger_monitoring({"entity": entity, "role": role})
