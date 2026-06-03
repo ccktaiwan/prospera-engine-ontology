@@ -112,3 +112,113 @@ if __name__ == "__main__":
     for t in tests:
         result = classify(t)
         print(f"{t}: {result['role']} -> {get_workflow_for_role(result['role'])}")
+
+
+# ─── SME Stage Classification (ADR-021) ─────────────────────────────────────
+
+SME_STAGE_ONTOLOGY = {
+    "stage_1": {
+        "name": "Digital Foundation",
+        "criteria": ["brand_config_exists", "content_template_exists"],
+        "capabilities": ["content", "strategy"],
+        "workflow_priority": "content",
+    },
+    "stage_2": {
+        "name": "Content Engine",
+        "criteria": ["monthly_content_plan", "active_platform"],
+        "capabilities": ["content", "strategy", "gengrant"],
+        "workflow_priority": "strategy",
+    },
+    "stage_3": {
+        "name": "Analytics and Ads",
+        "criteria": ["analytics_connected", "monthly_inquiries_tracked", "paid_channel_active"],
+        "capabilities": ["content", "strategy", "analytics", "gengrant"],
+        "workflow_priority": "analytics",
+    },
+    "stage_4": {
+        "name": "Lead Generation",
+        "criteria": ["inquiry_conversion_5pct", "crm_basics"],
+        "capabilities": ["content", "strategy", "analytics", "gengrant", "crm"],
+        "workflow_priority": "analytics",
+    },
+    "stage_5": {
+        "name": "Automation",
+        "criteria": ["booking_system", "automated_followup"],
+        "capabilities": ["content", "strategy", "analytics", "gengrant", "crm", "automation"],
+        "workflow_priority": "automation",
+    },
+}
+
+CLIENT_STAGE_REGISTRY = {
+    "phoenix": {
+        "current_stage": 2,
+        "stage_name": "Content Engine",
+        "tenant_id": "phoenix",
+        "client_name": "phoenix lucky health center",
+        "industry": "health_management",
+        "blockers": ["ga4_not_connected", "ads_budget_unconfirmed"],
+    },
+    "xinyuan": {
+        "current_stage": 1,
+        "stage_name": "Digital Foundation",
+        "tenant_id": "xinyuan",
+        "client_name": "xinyuan interior engineering",
+        "industry": "interior_renovation",
+        "blockers": ["website_not_live", "no_active_platform"],
+    },
+}
+
+
+def classify_sme_stage(tenant_id: str) -> dict:
+    """Classify a client's current SME Stage and return advancement recommendations."""
+    client = CLIENT_STAGE_REGISTRY.get(tenant_id)
+    if not client:
+        return {"error": f"tenant_id '{tenant_id}' not in CLIENT_STAGE_REGISTRY"}
+    stage_num = client["current_stage"]
+    stage_key = f"stage_{stage_num}"
+    stage_info = SME_STAGE_ONTOLOGY.get(stage_key, {})
+    next_stage_key = f"stage_{stage_num + 1}"
+    next_stage = SME_STAGE_ONTOLOGY.get(next_stage_key, {})
+    return {
+        "tenant_id": tenant_id,
+        "current_stage": stage_num,
+        "stage_name": stage_info.get("name", "unknown"),
+        "available_capabilities": stage_info.get("capabilities", []),
+        "workflow_priority": stage_info.get("workflow_priority", "content"),
+        "blockers": client.get("blockers", []),
+        "next_stage": stage_num + 1 if next_stage else None,
+        "next_stage_name": next_stage.get("name"),
+        "next_stage_criteria": next_stage.get("criteria", []),
+        "advancement_gap": [c for c in next_stage.get("criteria", []) if c in client.get("blockers", [])],
+    }
+
+
+def classify_entity(entity: str) -> dict:
+    """Unified entry point: classify repo, request, or SME tenant."""
+    if entity in CLIENT_STAGE_REGISTRY:
+        return classify_sme_stage(entity)
+    result = classify_repo(entity)
+    if not result.get("found"):
+        result2 = classify_request(entity)
+        if result2.get("found"):
+            return result2
+    return result
+
+
+def log_classification(entity: str, context: dict = None) -> dict:
+    """Classify and write to execution_log.jsonl."""
+    import json as _json, datetime as _dt, hashlib as _hs, os as _os, pathlib as _pl
+    result = classify_entity(entity)
+    entry = {
+        "gid": "GID-" + _hs.sha256(
+            f"{entity}:classify:{_dt.datetime.now().isoformat()[:16]}".encode()
+        ).hexdigest()[:12].upper(),
+        "entity": entity,
+        "classification": result,
+        "context": context or {},
+        "timestamp": _dt.datetime.now().isoformat(),
+    }
+    log_path = _pl.Path(__file__).resolve().parent / "execution_log.jsonl"
+    with open(log_path, "a", encoding="utf-8") as f:
+        f.write(_json.dumps(entry, ensure_ascii=False) + "\n")
+    return result
