@@ -203,22 +203,3 @@ def classify_entity(entity: str) -> dict:
         if result2.get("found"):
             return result2
     return result
-
-
-def log_classification(entity: str, context: dict = None) -> dict:
-    """Classify and write to execution_log.jsonl."""
-    import json as _json, datetime as _dt, hashlib as _hs, os as _os, pathlib as _pl
-    result = classify_entity(entity)
-    entry = {
-        "gid": "GID-" + _hs.sha256(
-            f"{entity}:classify:{_dt.datetime.now().isoformat()[:16]}".encode()
-        ).hexdigest()[:12].upper(),
-        "entity": entity,
-        "classification": result,
-        "context": context or {},
-        "timestamp": _dt.datetime.now().isoformat(),
-    }
-    log_path = _pl.Path(__file__).resolve().parent / "execution_log.jsonl"
-    with open(log_path, "a", encoding="utf-8") as f:
-        f.write(_json.dumps(entry, ensure_ascii=False) + "\n")
-    return result
