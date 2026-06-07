@@ -1,5 +1,5 @@
 # CONTRACT｜prospera-engine-ontology
-Ring: R4 Engines
+Ring: R4 Engines（R4a Internal Intelligence 子環；程式碼標 R4a，見 ontology_classifier）
 Version: v1.0
 Date: 2026-05-31
 
