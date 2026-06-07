@@ -1,7 +1,7 @@
 > ⚠️ SPECIFICATION ONLY — No implementation yet. Engine code is planned but not yet built.
 
 ---
-Prospera-ID: prospera-ontology-engine
+Prospera-ID: prospera-engine-ontology
 Governance-Category: PLATFORM
 Layer-Position: L2 (Design Authority) / L4 (Knowledge Engine)
 Human-Authorizing-Engineer: ccktaiwan (MND-Authority)

@@ -1,2 +1,2 @@
-﻿# Registry loader for prospera-ontology-engine
+﻿# Registry loader for prospera-engine-ontology
 REGISTRY = {}

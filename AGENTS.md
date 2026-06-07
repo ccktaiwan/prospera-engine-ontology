@@ -1,10 +1,10 @@
-# AGENTS.md — prospera-ontology-engine
+# AGENTS.md — prospera-engine-ontology
 # Version: 1.0 | 2026-04-30
 # Governance Reference: Prospera-Governance-Core v3.0
 # Pipeline Reference: Prospera-Workflow-Engine v1.0
 
 ## 1. REPO IDENTITY
-Repo: ccktaiwan/prospera-ontology-engine
+Repo: ccktaiwan/prospera-engine-ontology
 Layer: L2 — Ontology
 Role: 語意本體引擎
 

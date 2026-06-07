@@ -1,6 +1,6 @@
 ---
-# prospera-ontology-engine Constitution
-Prospera-ID: prospera-ontology-engine
+# prospera-engine-ontology Constitution
+Prospera-ID: prospera-engine-ontology
 Layer: L2
 Governed-By: prospera-engineering-codex v1.0
 Owner: ccktaiwan

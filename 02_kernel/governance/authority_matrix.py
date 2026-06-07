@@ -1,6 +1,6 @@
 ﻿"""
 Prospera Authority Matrix
-Repo: prospera-ontology-engine
+Repo: prospera-engine-ontology
 Version: v1.0
 """
 AUTHORITY_MATRIX = {
