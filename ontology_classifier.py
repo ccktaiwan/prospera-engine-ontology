@@ -34,7 +34,7 @@ REPO_ONTOLOGY = {
     "prospera-engine-registry":             {"role": "SPEC", "ring": "R6", "workflow": "spec_integrity"},
     "prospera-agent-memory":                {"role": "EXECUTION", "ring": "R7", "workflow": "snapshot"},
     "prospera-product-dashboard":           {"role": "EXECUTION", "ring": "R5", "workflow": "dashboard"},
-    "prospera-product-phoenix-lucky":       {"role": "EXECUTION", "ring": "R5", "workflow": "content"},
+    "prospera-client-phoenix":       {"role": "EXECUTION", "ring": "R5", "workflow": "content"},
     "prospera-product-esg":                 {"role": "EXECUTION", "ring": "R5", "workflow": "content"},
     "prospera-product-client-template":     {"role": "SPEC", "ring": "R5", "workflow": "spec_integrity"},
     "prospera-infra-ci":                    {"role": "SPEC", "ring": "R6", "workflow": "spec_integrity"},
