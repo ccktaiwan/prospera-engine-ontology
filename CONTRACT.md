@@ -1,3 +1,4 @@
+<!-- Prospera SYSTEM HEADER (ADR-0032/SBOM) | 性質:idea | 設計:Kevin 架構 | 執行:AI 工具(claude.ai+Claude Code) | 驗證:無機制驗證 | IP:創造性歸 Kevin(發明人), AI 為執行工具 -->
 # CONTRACT｜prospera-engine-ontology
 Ring: R4 Engines（R4a Internal Intelligence 子環；程式碼標 R4a，見 ontology_classifier）
 Version: v1.0
