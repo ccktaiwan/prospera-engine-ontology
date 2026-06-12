@@ -1,21 +1,31 @@
 {
+  "_ip_notice": "創造性歸 Kevin(發明人), AI 為執行工具 (ADR-0032)",
   "$schema": "http://json-schema.org/draft-07/schema#",
-
   "AI_HEADER": {
     "type": "AUDIT_SCHEMA",
     "mode": "REQUIRED",
     "instruction": "All commits must conform to this schema."
   },
-
   "type": "object",
-  "required": ["Context", "Decision", "Impact", "Next"],
-
+  "required": [
+    "Context",
+    "Decision",
+    "Impact",
+    "Next"
+  ],
   "properties": {
-    "Context": { "type": "string" },
-    "Decision": { "type": "string" },
-    "Impact": { "type": "string" },
-    "Next": { "type": "string" }
+    "Context": {
+      "type": "string"
+    },
+    "Decision": {
+      "type": "string"
+    },
+    "Impact": {
+      "type": "string"
+    },
+    "Next": {
+      "type": "string"
+    }
   },
-
   "additionalProperties": false
 }

@@ -1,23 +1,20 @@
 {
+  "_ip_notice": "創造性歸 Kevin(發明人), AI 為執行工具 (ADR-0032)",
   "$schema": "http://json-schema.org/draft-07/schema#",
-
   "AI_HEADER": {
     "type": "EXECUTION_CODEX",
     "mode": "HARD_ENFORCEMENT",
     "instruction": "Execution must follow schema or fail."
   },
-
   "Context": "將治理規則轉為可執行約束，避免 AI 在 runtime 出現不確定行為。",
-
   "Decision": "定義 execution protocol 與 violation policy，並透過 schema 鎖定結構。",
-
   "Impact": "所有 AI 行為轉為 deterministic execution，任何違規直接中止。",
-
   "Next": "CI 將驗證所有操作是否符合 codex。",
-
   "type": "object",
-  "required": ["execution_protocol", "violation_policy"],
-
+  "required": [
+    "execution_protocol",
+    "violation_policy"
+  ],
   "properties": {
     "execution_protocol": {
       "type": "array",
@@ -30,18 +27,25 @@
         ]
       }
     },
-
     "violation_policy": {
       "type": "object",
       "properties": {
-        "missing_mapping": { "const": "STOP" },
-        "invalid_path": { "const": "REJECT" },
-        "illegal_structure": { "const": "FAIL_PIPELINE" }
+        "missing_mapping": {
+          "const": "STOP"
+        },
+        "invalid_path": {
+          "const": "REJECT"
+        },
+        "illegal_structure": {
+          "const": "FAIL_PIPELINE"
+        }
       },
-      "required": ["missing_mapping", "invalid_path"],
+      "required": [
+        "missing_mapping",
+        "invalid_path"
+      ],
       "additionalProperties": false
     }
   },
-
   "additionalProperties": false
 }

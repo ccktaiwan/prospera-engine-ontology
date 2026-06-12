@@ -1,39 +1,42 @@
 {
+  "_ip_notice": "創造性歸 Kevin(發明人), AI 為執行工具 (ADR-0032)",
   "$schema": "http://json-schema.org/draft-07/schema#",
-
   "AI_HEADER": {
     "type": "STATE_LOCK",
     "mode": "IMMUTABLE",
     "instruction": "System state must not be altered without authority."
   },
-
   "Context": "將治理完成狀態固化，避免 AI 誤判系統仍可修改架構。",
-
   "Decision": "建立 LOCKED 狀態宣告，並透過 schema 限制其結構。",
-
   "Impact": "AI 將停止所有結構性變更行為，僅允許邏輯層操作。",
-
   "Next": "CI 將驗證此狀態不可被變更。",
-
   "type": "object",
-  "required": ["status", "governance"],
-
+  "required": [
+    "status",
+    "governance"
+  ],
   "properties": {
     "status": {
       "const": "LOCKED"
     },
-
     "governance": {
       "type": "object",
       "properties": {
-        "mapping_clean": { "const": true },
-        "unclassified": { "const": 0 },
-        "illegal_root": { "const": 0 }
+        "mapping_clean": {
+          "const": true
+        },
+        "unclassified": {
+          "const": 0
+        },
+        "illegal_root": {
+          "const": 0
+        }
       },
-      "required": ["mapping_clean"],
+      "required": [
+        "mapping_clean"
+      ],
       "additionalProperties": false
     }
   },
-
   "additionalProperties": false
 }

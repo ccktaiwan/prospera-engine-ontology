@@ -1,51 +1,59 @@
 {
+  "_ip_notice": "創造性歸 Kevin(發明人), AI 為執行工具 (ADR-0032)",
   "$schema": "http://json-schema.org/draft-07/schema#",
-
   "AI_HEADER": {
     "type": "GLOBAL_CONTRACT",
     "authority": "SYSTEM_LEVEL",
     "mode": "ENFORCED",
     "instruction": "This contract is authoritative. All repos MUST comply."
   },
-
   "Context": "建立跨 50 Repo 的全域治理契約，避免各 Repo 各自解讀規則導致系統失控。",
-
   "Decision": "引入 global_contract.json 作為單一事實來源（SSOT），定義 Layer、Gene、通訊與禁止行為。",
-
   "Impact": "所有 Repo 不再孤立，AI 必須遵循全域約束，確保跨系統一致性與可預測性。",
-
   "Next": "所有 Repo codex.json 必須引用此 contract，並於 CI 中驗證一致性。",
-
   "type": "object",
-  "required": ["system", "layers", "rules", "communication"],
-
+  "required": [
+    "system",
+    "layers",
+    "rules",
+    "communication"
+  ],
   "properties": {
     "system": {
       "const": "Prospera"
     },
-
     "layers": {
       "type": "array",
       "items": {
-        "enum": ["L1", "L2", "L3", "SG"]
+        "enum": [
+          "L1",
+          "L2",
+          "L3",
+          "SG"
+        ]
       }
     },
-
     "rules": {
       "type": "object",
       "properties": {
-        "no_new_repo": { "const": true },
-        "no_new_root_folder": { "const": true },
-        "mapping_required": { "const": true }
+        "no_new_repo": {
+          "const": true
+        },
+        "no_new_root_folder": {
+          "const": true
+        },
+        "mapping_required": {
+          "const": true
+        }
       },
       "additionalProperties": false
     },
-
     "communication": {
       "type": "string",
-      "enum": ["api-gateway-only"]
+      "enum": [
+        "api-gateway-only"
+      ]
     }
   },
-
   "additionalProperties": false
 }
